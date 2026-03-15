@@ -55,9 +55,14 @@ The analysis follows a structured workflow:
 4. Customer segmentation using SQL CASE statements
 5. Advanced analysis using window functions to identify high-risk customers
 
+## Data Cleaning & Validation
+Before performing the analysis, several data quality checks were conducted:
+• Checked for missing values across key columns (Age, Balance, Geography, Gender).
+• Verified that each CustomerId is unique to avoid duplicate records.
+• Examined minimum and maximum values to detect potential outliers in Age and Balance.
+The dataset showed no significant data quality issues, allowing the analysis to proceed without additional data cleaning steps.
 
 # Project Structure
-
 bank-customer-churn-sql-analysis
 data_exploration.sql
 customer_exploration.sql
@@ -75,8 +80,7 @@ Initial data validation and quality checks were performed including:
 * Checking duplicate customers
 * Detecting outliers in Age and Balance
 
-Example checks:
-
+Example :
 SELECT COUNT(*) 
 FROM customer_churn_analysis.`customer-churn-records`;
 
@@ -117,19 +121,14 @@ ROUND(AVG(Exited)*100,2) AS churn_rate
 FROM customer_churn_analysis.`customer-churn-records`;
 
 # 4. Advanced Analysis
-
 Advanced SQL techniques were used to identify high-risk customers.
 
 ### Window Functions
-
 Ranking highest-value churned customers:
-
 RANK() OVER (ORDER BY Balance DESC)
 
 ### Customer Risk Segmentation
-
 Customers were categorized into risk segments using business rules:
-
 * High Risk
 * Medium Risk
 * Low Risk
@@ -142,9 +141,7 @@ ELSE 'Low Risk'
 END
 
 # Key Insights
-
 Several important patterns were discovered:
-
 • Inactive customers churn significantly more than active customers.
 • Customers with **only one product show the highest churn rate**.
 • Certain countries show higher churn rates than others.
@@ -152,18 +149,22 @@ Several important patterns were discovered:
 • High-balance churned customers represent potential revenue loss.
 
 # Business Recommendations
-
 Based on the analysis:
-
 1. Increase engagement with inactive customers through targeted campaigns.
 2. Encourage customers to adopt multiple banking products.
 3. Monitor high-balance customers to prevent valuable churn.
 4. Develop retention strategies for high-risk segments.
+5. 
+## Future Improvements
+Several extensions could enhance this analysis:
+• Building a churn prediction model using machine learning.
+• Creating an interactive dashboard using Power BI or Tableau.
+• Performing cohort analysis to track customer retention over time.
+• Analyzing transaction-level behavior if additional data becomes available.
+These enhancements would provide deeper insights into customer retention strategies.
 
 # SQL Skills Demonstrated
-
 This project demonstrates key SQL skills used in data analytics:
-
 * Data exploration and cleaning
 * Aggregation functions
 * CASE WHEN segmentation
@@ -173,12 +174,10 @@ This project demonstrates key SQL skills used in data analytics:
 * Business KPI calculation
 
 # Tools Used
-
 * MySQL
 * SQL (Data Analysis)
 * MySQL Workbench
 
----
 
 # Author
 

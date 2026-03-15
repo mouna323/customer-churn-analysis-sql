@@ -46,11 +46,19 @@ This project aims to answer several key business questions related to customer c
 6. Are high-balance customers more likely to churn?
 7. Which customer segments represent the highest churn risk?
 
+## Analysis Approach
+
+The analysis follows a structured workflow:
+1. Data exploration and quality checks
+2. Customer distribution analysis
+3. Churn rate analysis across different customer attributes
+4. Customer segmentation using SQL CASE statements
+5. Advanced analysis using window functions to identify high-risk customers
+
 
 # Project Structure
 
 bank-customer-churn-sql-analysis
-
 data_exploration.sql
 customer_exploration.sql
 churn_analysis.sql
@@ -61,7 +69,6 @@ Advanced_Analysis.sql
 ## 1. Data Exploration
 
 Initial data validation and quality checks were performed including:
-
 * Checking table structure
 * Counting total records
 * Identifying missing values
@@ -77,9 +84,7 @@ SELECT
 SUM(CASE WHEN Age IS NULL THEN 1 ELSE 0 END) AS missing_age
 FROM customer_churn_analysis.`customer-churn-records`;
 
-
 # 2. Customer Distribution Analysis
-
 Customer demographics and distribution were analyzed across key variables:
 * Geography
 * Age
@@ -95,7 +100,6 @@ GROUP BY Geography;
 This helps understand the **structure of the customer base**.
 
 # 3. Churn Analysis
-
 Core churn metrics were calculated including:
 * Overall churn rate
 * Churn by country
